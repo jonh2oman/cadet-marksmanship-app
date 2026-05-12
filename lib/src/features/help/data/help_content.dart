@@ -1,0 +1,86 @@
+import '../domain/help_article.dart';
+
+const helpArticles = [
+  HelpArticle(
+    id: 'register-team',
+    title: 'How to Register a Team',
+    description: 'Learn how to add and manage marksmanship teams for competitions.',
+    category: HelpCategory.teams,
+    steps: [
+      'Navigate to "Marksmanship" from the home screen.',
+      'Select "Run a Range".',
+      'Click on "Team Registry".',
+      'Tap the "+" button to add a new team.',
+      'Enter the team name and the name of the coach.',
+      'Add members to the team (Minimum 2 Juniors required for standard rules).',
+      'Save the team to make it available for relays.',
+    ],
+  ),
+  HelpArticle(
+    id: 'run-relay',
+    title: 'Running a Marksmanship Relay',
+    description: 'A step-by-step guide to managing a relay on the range.',
+    category: HelpCategory.marksmanship,
+    steps: [
+      'Select "Run a Range" from the Marksmanship Hub.',
+      'Choose "Competition Mode".',
+      'Select or create a new relay.',
+      'Assign teams or individual shooters to lanes.',
+      'Use the "Range Commands" screen to follow official protocols.',
+      'Once shooting is complete, navigate to the scoring section.',
+    ],
+  ),
+  HelpArticle(
+    id: 'score-grouping',
+    title: 'Scoring Grouping Targets',
+    description: 'Instructions for measuring and recording grouping scores.',
+    category: HelpCategory.scoring,
+    steps: [
+      'Open the "Scoring Hub" from the Run a Range screen.',
+      'Select "Grouping Scoring".',
+      'Choose the competitor you are scoring.',
+      'Measure the distance between the centers of the two shots widest apart (mm).',
+      'Enter the measurement into the app.',
+      'The app will automatically calculate the grouping score based on the rulebook.',
+    ],
+  ),
+  HelpArticle(
+    id: 'score-competition',
+    title: 'Scoring Competition Targets',
+    description: 'How to score precision shots for air rifle competitions.',
+    category: HelpCategory.scoring,
+    steps: [
+      'Open the "Scoring Hub".',
+      'Select "Competition Scoring".',
+      'Choose the relay and the shooter.',
+      'For each of the 10 diagrams, enter the point value (0-10).',
+      'The app calculates the total and applies any applicable bonuses or penalties.',
+    ],
+  ),
+  HelpArticle(
+    id: 'biathlon-coach',
+    title: 'Using Biathlon Coach Tools',
+    description: 'How to use the coaching interface for biathlon training.',
+    category: HelpCategory.biathlon,
+    steps: [
+      'Navigate to "Biathlon" from the home screen.',
+      'Select "Coach Tools".',
+      'Choose the race type (Sprint, Pursuit, etc.).',
+      'Use the timer to track lap times for multiple athletes.',
+      'Record shooting hits/misses in real-time.',
+      'View the live dashboard to analyze performance.',
+    ],
+  ),
+  HelpArticle(
+    id: 'rulebook-search',
+    title: 'Searching the Rulebook',
+    description: 'How to quickly find specific rules in the app.',
+    category: HelpCategory.rules,
+    steps: [
+      'Select "Rulebook" from either the Marksmanship or Biathlon hubs.',
+      'Use the search bar at the top to type keywords (e.g., "misfire").',
+      'The list will filter to show relevant sections.',
+      'Tap a section to read the full text.',
+    ],
+  ),
+];
