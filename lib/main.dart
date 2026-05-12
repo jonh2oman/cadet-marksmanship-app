@@ -30,7 +30,8 @@ class MyApp extends ConsumerWidget {
         case AppThemeMode.sea:
           return AppTheme.seaTheme;
         case AppThemeMode.system:
-          return AppTheme.darkTheme; // Fallback or handle system
+        default:
+          return AppTheme.darkTheme;
       }
     }
 
