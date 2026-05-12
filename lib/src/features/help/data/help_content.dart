@@ -83,4 +83,42 @@ const helpArticles = [
       'Tap a section to read the full text.',
     ],
   ),
+  HelpArticle(
+    id: 'switch-themes',
+    title: 'Switching Visual Themes',
+    description: 'How to change the look and feel of the application.',
+    category: HelpCategory.general,
+    steps: [
+      'On the Home Screen, look for the theme switcher bar at the top.',
+      'Tap the Sun icon for Light Mode.',
+      'Tap the Moon icon for Dark Mode (RCN Navy).',
+      'Tap the Waves icon for the specialized "SEA" theme.',
+      'Tap the Monitor icon to follow your device system settings.',
+    ],
+  ),
+  HelpArticle(
+    id: 'scoring-only',
+    title: 'Using Scoring Only Mode',
+    description: 'Quickly calculate scores without managing a range.',
+    category: HelpCategory.scoring,
+    steps: [
+      'From the Home Screen, select "Scoring Only".',
+      'Choose the target type you wish to score.',
+      'Input your measurements or point values.',
+      'The results are calculated instantly for your reference.',
+      'Note: Standalone mode does not save data to a relay.',
+    ],
+  ),
+  HelpArticle(
+    id: 'legal-disclaimer',
+    title: 'Disclaimer & Liability',
+    description: 'Information about the status of this tool.',
+    category: HelpCategory.rules,
+    steps: [
+      'This tool is provided without any guarantee of accuracy.',
+      'It is NOT an official DND or CCO product.',
+      'You must acknowledge this disclaimer on your first visit.',
+      'Always cross-reference results with official paper scorecards and rulebooks.',
+    ],
+  ),
 ];

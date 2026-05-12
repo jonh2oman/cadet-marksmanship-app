@@ -21,6 +21,7 @@ import '../features/rulebook/presentation/rulebook_screen.dart';
 import '../features/help/presentation/help_hub_screen.dart';
 import '../features/help/presentation/help_article_screen.dart';
 import '../shared/widgets/help_button.dart';
+import '../features/home/presentation/changelog_screen.dart';
 import '../data/biathlon_rules.dart';
 import '../data/marksmanship_rules.dart';
 import '../theme/app_theme.dart';
@@ -143,6 +144,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: '/scoring',
             builder: (context, state) => const ScoringHubScreen(),
+          ),
+          GoRoute(
+            path: '/changelog',
+            builder: (context, state) => const ChangeLogScreen(),
           ),
         ],
       ),

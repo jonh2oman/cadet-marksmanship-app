@@ -120,6 +120,36 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'v1.2.0',
+                        style: TextStyle(color: Colors.white24, fontSize: 12),
+                      ),
+                      const SizedBox(width: 8),
+                      const Text('|', style: TextStyle(color: Colors.white10)),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        onPressed: () => context.push('/changelog'),
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: const Text(
+                          'CHANGE LOG',
+                          style: TextStyle(
+                            color: Colors.white38,
+                            fontSize: 10,
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
