@@ -140,6 +140,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
+          GoRoute(
+            path: '/scoring',
+            builder: (context, state) => const ScoringHubScreen(),
+          ),
         ],
       ),
       // Help routes are outside the shell because they don't need a help button

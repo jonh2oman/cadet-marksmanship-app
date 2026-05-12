@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:go_router/go_router.dart';
+import '../../../shared/widgets/glass_container.dart';
 
 class ScoringHubScreen extends StatelessWidget {
   const ScoringHubScreen({super.key});
@@ -9,12 +10,8 @@ class ScoringHubScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SCORING'),
+        title: const Text('SCORING HUB'),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(LucideIcons.arrowLeft),
-          onPressed: () => context.pop(),
-        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(24),
@@ -59,27 +56,44 @@ class _ScoringTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: const Color(0xFF1E293B),
-      borderRadius: BorderRadius.circular(20),
+    return GlassContainer(
+      opacity: 0.05,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         child: Container(
           padding: const EdgeInsets.all(24),
           child: Row(
             children: [
-              Icon(icon, color: color, size: 32),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(icon, color: color, size: 32),
+              ),
               const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: TextStyle(color: color, fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text(subtitle, style: const TextStyle(color: Colors.white38, fontSize: 12)),
+                    Text(
+                      title, 
+                      style: TextStyle(
+                        color: color, 
+                        fontSize: 18, 
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      subtitle, 
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ],
                 ),
               ),
+              const Icon(LucideIcons.chevronRight),
             ],
           ),
         ),
