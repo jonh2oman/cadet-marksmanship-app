@@ -1,55 +1,101 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import '../../../shared/widgets/disclaimer_dialog.dart';
 import '../../../theme/app_theme.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      DisclaimerDialog.showIfNeeded(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              Text(
-                'Select Discipline',
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Choose your focus area to begin.',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(height: 48),
-              Expanded(
-                child: ListView(
-                  children: [
-                    _buildDisciplineCard(
-                      context,
-                      title: 'Marksmanship',
-                      subtitle: 'Air Rifle & Grouping',
-                      icon: LucideIcons.target,
-                      color: AppTheme.primaryMarksmanship,
-                      onTap: () => context.push('/marksmanship'),
-                    ),
-                    const SizedBox(height: 24),
-                    _buildDisciplineCard(
-                      context,
-                      title: 'Biathlon',
-                      subtitle: 'Skiing/Running & Shooting',
-                      icon: LucideIcons.crosshair,
-                      color: AppTheme.primaryBiathlon,
-                      onTap: () => context.push('/biathlon'),
-                    ),
-                  ],
-                ),
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
             ],
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.blue.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    'WELCOME, LT(N) WATERMAN',
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: Colors.blue,
+                          letterSpacing: 1.2,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'CCO Marksmanship Tool',
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Select a discipline to begin your session.',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey[400],
+                      ),
+                ),
+                const SizedBox(height: 48),
+                Expanded(
+                  child: ListView(
+                    children: [
+                      _buildDisciplineCard(
+                        context,
+                        title: 'Marksmanship',
+                        subtitle: 'Air Rifle & Grouping',
+                        icon: LucideIcons.target,
+                        color: AppTheme.primaryMarksmanship,
+                        onTap: () => context.push('/marksmanship'),
+                      ),
+                      const SizedBox(height: 24),
+                      _buildDisciplineCard(
+                        context,
+                        title: 'Biathlon',
+                        subtitle: 'Skiing/Running & Shooting',
+                        icon: LucideIcons.crosshair,
+                        color: AppTheme.primaryBiathlon,
+                        onTap: () => context.push('/biathlon'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
